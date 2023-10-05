@@ -2,6 +2,9 @@
 require_once './configs/bootstrap.php';
 //include './src/toolkit.php';
 dd($globalConfigs);
+fromInc("menu");
 
-$test + 4;
+//dd($_GET);
+rooting("Accueil");
+
 ?>

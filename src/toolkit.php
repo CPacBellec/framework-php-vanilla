@@ -24,5 +24,21 @@ function debugMode($active){
     return;
 }
 
+function fromInc($name){
+    include "./templates/includes/" . $name . ".inc.php";
+}
+
+function rooting($page){
+    foreach ($_GET as $key => $page) {
+        if ($page === "accueil") {
+            echo "Je suis à l'accueil";
+        } else if ($page === "about") {
+            echo "A propos de nous";
+        } else {
+            echo "Erreur 404 : Page inconnu !";
+        }
+    }
+}
+
 
 ?>
