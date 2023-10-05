@@ -11,6 +11,6 @@ if (isset($_GET['page'])) {
     fromInc($_GET['page']);
 }
 $pageContent = "toto";
-include "./templates/layouts/". $_GET["layout"] .""
+include "./templates/layouts/". $_GET["layout"] ."layout.php";
 
 ?>
