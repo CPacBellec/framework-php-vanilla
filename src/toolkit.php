@@ -33,11 +33,11 @@ function fromInc($name){
 }
 
 function getLayouts($name){
-    if (file_exists("./templates/layouts/" . $name . ".layout.php")) {
+    //if (file_exists("./templates/layouts/" . $name . ".layout.php")) {
         include "./templates/layouts/" . $name . ".layout.php";
-    } else {
-        return false;
-    }
+   // } else {
+    //    return false;
+    //}
 }
 
 /*function rooting($page){

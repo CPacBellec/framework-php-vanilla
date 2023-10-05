@@ -4,13 +4,15 @@ require_once './configs/bootstrap.php';
 //dd($globalConfigs); 
 ob_start();
 
-fromInc("menu");
+//fromInc("menu");
 //dd($_GET);
 //rooting("Accueil");
 if (isset($_GET['page'])) {
     fromInc($_GET['page']);
 }
-$pageContent = "toto";
-include "./templates/layouts/". $_GET["layout"] ."layout.php";
+$pageContent = [
+"html" => ob_get_clean()
+] ;
+include "./templates/layouts/". $_GET["layout"] .".layout.php";
 
 ?>

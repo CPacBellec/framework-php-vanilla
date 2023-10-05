@@ -1,7 +1,7 @@
 
 
-<h2>Accueil</h2>
+<h1>Accueil</h1>
 
 <?php 
-$pageContent = ob_get_clean();
+//$pageContent = ob_get_clean();
 ?>

@@ -1,1 +1,1 @@
-<h2>Forum</h2>
+<h1>Forum</h1>
