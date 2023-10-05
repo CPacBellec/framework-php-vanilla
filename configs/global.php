@@ -1,0 +1,4 @@
+<?php
+$globalConfigs = [
+    "debugMode" => true,
+];
