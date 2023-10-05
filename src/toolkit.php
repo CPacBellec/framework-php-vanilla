@@ -25,10 +25,22 @@ function debugMode($active){
 }
 
 function fromInc($name){
-    include "./templates/includes/" . $name . ".inc.php";
+    if (file_exists("./templates/includes/" . $name . ".inc.php")) {
+        include "./templates/includes/" . $name . ".inc.php";
+    } else {
+        return false;
+    }
 }
 
-function rooting($page){
+function getLayouts($name){
+    if (file_exists("./templates/layouts/" . $name . ".layout.php")) {
+        include "./templates/layouts/" . $name . ".layout.php";
+    } else {
+        return false;
+    }
+}
+
+/*function rooting($page){
     foreach ($_GET as $key => $page) {
         if ($page === "accueil") {
             echo "Je suis à l'accueil";
@@ -38,7 +50,8 @@ function rooting($page){
             echo "Erreur 404 : Page inconnu !";
         }
     }
-}
+}*/
+
 
 
 ?>
