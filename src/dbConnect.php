@@ -1,5 +1,6 @@
 <?php
 
+require "./configs/global.php";
 $connection = new PDO('mysql:host='.$globalConfigs["database"]["host"].
  ";port=". $globalConfigs['database']['port'] .
  ';dbname='. $globalConfigs['database']['db_name'] . ""
