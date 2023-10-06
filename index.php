@@ -15,6 +15,7 @@ $pageContent = [
 ] ;
 include "./templates/layouts/". $_GET["layout"] .".layout.php";
 //getAll($connection);
+getById($connection,1);
 //create($connection, "Clapton", "Eric", "online");
 //update($connection,8);
 //delete($connection,10);

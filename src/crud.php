@@ -3,14 +3,14 @@ require_once "./src/dbConnect.php";
 
 //fonction getAll
 function getAll($connection){
-    $statement = $connection->query("SELECT * FROM contacts WHERE 1");
+    $statement = $connection->query("SELECT * FROM `contacts` WHERE 1");
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
   
 //fonction getById
 function getById($connection, $id){
-    $statement = $connection->query("SELECT * FROM contacts WHERE id = ? ");
+    $statement = $connection->prepare("SELECT * FROM `contacts` WHERE id = ? ");
     $statement->bindParam(1,$id);
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $data;
