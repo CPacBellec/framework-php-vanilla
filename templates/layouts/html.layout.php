@@ -6,3 +6,4 @@ if (isset($pageContent)) {
 }
 include_once './templates/includes/html_footer.inc.php';
 fromInc("menu");
+create($connection, "Cena", "John", "online");
