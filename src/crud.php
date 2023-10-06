@@ -8,10 +8,11 @@ function getAll($connection){
 }
   
 //fonction getById
-function getById($connection, $name, $surname, $status){
-    $statement = $connection->query("SELECT * FROM contacts WHERE `name` =  'Bellec' AND `surname` = '".htmlspecialchars( $_GET["surname"])."'");
-
+function getById($connection, $id){
+    $statement = $connection->query("SELECT * FROM contacts WHERE id = ? ");
+    $statement->bindParam(1,$id);
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
 }
 
 //fonction create 
