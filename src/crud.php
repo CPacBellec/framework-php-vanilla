@@ -26,15 +26,13 @@ function create($connection, $name, $surname, $status){
 //fonction delete
 function delete($connection, $id){
     $statement = $connection->prepare("DELETE FROM `contacts` WHERE id = ?");
-    $id = 3;
-    $statement->bindParam(1, $id);
+    $statement->bindParam(1,$id);
     $statement->execute();    
 }
 
 //fonction update
-function update($connection){
+function update($connection, $id){
     $statement = $connection->prepare("UPDATE `contacts` SET `status` = 'offline' WHERE id = ?");
-    $id = 2;
     $statement->bindParam(1, $id);
     $statement->execute();    
 }

@@ -14,6 +14,9 @@ $pageContent = [
 "html" => ob_get_clean()
 ] ;
 include "./templates/layouts/". $_GET["layout"] .".layout.php";
-getAll($connection);
+//getAll($connection);
+//create($connection, "Clapton", "Eric", "online");
+//update($connection,8);
+//delete($connection,10);
 
 
