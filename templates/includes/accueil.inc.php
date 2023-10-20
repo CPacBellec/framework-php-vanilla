@@ -2,4 +2,4 @@
 
 <?php
 include './templates/includes/form.inc.php';
-include './templates/includes/listUsers.inc.php';
+//include './templates/includes/listUsers.inc.php';
