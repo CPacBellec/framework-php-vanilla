@@ -141,6 +141,7 @@ function queryBuilder($method, $table, ...$payload){
             die("ERROR : Not id to update");
         }
     }
+    
 
    return $query;
 
