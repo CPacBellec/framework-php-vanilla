@@ -1,5 +1,13 @@
 <?php
+require "vendor/autoload.php";
+use wolfpac\Controller\Database;
+$db = new Database();
+echo $db->table("Toto")->post(['filters'], true)->getFormat();
 
+
+//echo sprintf("Salut les %s, comment ça va?", "Zouzou");
+//echo "Hello World";
+/*
 require_once './configs/bootstrap.php';
 ob_start();
 
@@ -19,5 +27,5 @@ include "./templates/layouts/html.layout.php";
 //create($connection, "Clapton", "Eric", "online");
 //update($connection,8);
 //delete($connection,10);
-
+*/
 
