@@ -50,7 +50,6 @@ function queryBuilder($method, $table, ...$payload){
             $query .= "DELETE ";
             break;
         default:
-
             die("ERROR : Prepared query method not defined");
             break;
     }
@@ -131,7 +130,6 @@ function queryBuilder($method, $table, ...$payload){
             foreach ($filter as $key => $value) {
                 if($key === "id"){
                     $idFound = true;
-
                     $query .= "WHERE ";
                     $query .= "`" . $key . "` = ". $value;
                 } 

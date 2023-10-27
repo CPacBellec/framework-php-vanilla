@@ -24,9 +24,11 @@ class Database {
         $this->method = $method;
         return $this;
     }
-    public function getData($data = []){
-        return $this->$data;
+
+    public function getData(){
+        return $this->data;
     }
+
     public function get($data = []){
         $this->setMethod("get");
         $this->makeQuery($data);
@@ -42,64 +44,67 @@ class Database {
         $this->makeQuery($data);
         return $this;
     }
-    public function delete($data =[],$force = false){
-        //$this->setMethod("delete");
+    public function delete($data = [],$force = false){
         if($force){
             $this->setMethod("delete");
         } else {
             $this->setMethod("soft-delete");
         }
+        
         $this->makeQuery($data);
         return $this;
     }
-    private function makeQuery($data) {
-      $this->data = $data;  
-      $this->setFormat();
-      $this->build();
+
+    private function makeQuery($data){
+        $this->data = $data;
+        $this->setFormat();
+        $this->build(); 
+
     }
     private function setFormat(){
         $format = "";
         switch($this->getMethod()){
             case 'post':
-                $format = "INSERT INTO %s %s VALUES %s";
+                $format = "INSERT INTO %s %s VALUES %s ;";
                 break;
-            case 'soft-delete' :
             case 'update':
-                $format = "UPDATE %s SET %s WHERE %s";
+            case 'soft-delete':
+                $format = "UPDATE %s SET %s WHERE %s ;";
                 break;
-                case 'delete':
-                    $format = "DELETE FROM %s WHERE %s";
-                    break;
-                case 'get' : 
-                default : 
-                    $format = "SELECT %s FROM %s WHERE %s";
-                    break;
-            
+            case 'delete':
+                $format = "DELETE FROM %s WHERE %s;";
+                break;
+            case 'get':
+            default: 
+                $format = "SELECT %s FROM %s WHERE %s ;";
+                break;
         }
         $this->format = $format;
     }
-    public function getFormat(){
+    public function getFormat( ){
         return $this->format;
     }
-    //make listing with separator
 
 
-    //Parse parameter
+    //Make liting with separator
+
+
+    //Parse parameter 
     public function parseParams($dataKey = 'filters'){
         $res = "";
-        if(isset($this->getData()['filters'])){
+        if(isset($this->getData()[$dataKey])){
             $res = "";
-            $this->setParams($dataKey,$this->getData()[$dataKey]);
+            $this->setParams($dataKey, $this->getData()[$dataKey]);
             $params = [];
             foreach ($this->getParams($dataKey) as $key => $param) {
-                $params[] = "$key = $param";
+               $params[] = "$key = $param"; 
             }
             $res .= $this->makeListing($params);
-            return $res;
         }
+        return $res;
     }
 
-    public function makeListing($list = []){
+    public function makeListing($list = [] ){
         $res = "";
         $index = 0;
         foreach ($list as $value) {
@@ -119,15 +124,21 @@ class Database {
     public function getParams($key){
         return $this->$key;
     }
-    private function build() {
-        switch ($this->getMethod()){
-            case 'update' :
-                //code
+
+    private function build(){
+        $query = "";
+        switch($this->getMethod()){
+            case 'update':
+                // $format = "UPDATE %s SET %s WHERE %s ;";
+
+                $query = sprintf($this->getFormat(), $this->getTable(), $this->parseParams('post'), $this->parseParams());
                 break;
-            default :
-            //code
-            break;
+            
+            default:
+                # code...
+                break;
         }
+        $this->setQuery($query);
     }
     private function setQuery($query){
         $this->query = $query;
@@ -137,32 +148,3 @@ class Database {
         return $this->query;
     }
 }
-/*
-class MariaDB extends Database {
-
-}
-echo "PAGE TEST BDD";
-echo "<br/>";
-$instance_of_Database_Bdd_de_production = new Database("production");
-$instance_of_Database_Bdd_de_developpement = new Database("developpement");
-
-$instance_MariaDB = new MariaDB("maria");
-$instance_MariaDB->setLevel(3500);
-echo $instance_MariaDB->getLevel();
-//$toto = getLevel;
-
-//echo $instance_of_Database_Bdd_de_production->table;
-
-//$toto = "test";
-
-$instance_of_Database_Bdd_de_production->table = "Faux nom";
-$instance_of_Database_Bdd_de_production->test();
-$instance_of_Database_Bdd_de_developpement->test();
-
-$toto = "getLevel";
-//echo $instance_of_Database_Bdd_de_production->$toto;
-$instance_of_Database_Bdd_de_production->setLevel(3500);
-$instance_of_Database_Bdd_de_developpement->setLevel(3500);
-echo $instance_of_Database_Bdd_de_production->$toto();
-echo "<br/>";
-echo $instance_of_Database_Bdd_de_developpement->$toto();*/
