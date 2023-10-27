@@ -1,0 +1,32 @@
+PHPUnit 10.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.1.2-1ubuntu2.14
+Configuration: /var/www/html/framework-php-vanilla/phpunit.xml
+Random Seed:   1698402701
+
+..                                                                  2 / 2 (100%)
+
+Time: 00:00.003, Memory: 6.00 MB
+
+There was 1 PHPUnit test runner deprecation:
+
+1) Your XML configuration validates against a deprecated schema. Migrate your XML configuration using "--migrate-configuration"!
+
+OK, but there were issues!
+Tests: 2, Assertions: 10, Deprecations: 1.
+PHPUnit 10.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.1.2-1ubuntu2.14
+Configuration: /var/www/html/framework-php-vanilla/phpunit.xml
+Random Seed:   1698402732
+
+..                                                                  2 / 2 (100%)
+
+Time: 00:00.005, Memory: 6.00 MB
+
+There was 1 PHPUnit test runner deprecation:
+
+1) Your XML configuration validates against a deprecated schema. Migrate your XML configuration using "--migrate-configuration"!
+
+OK, but there were issues!
+Tests: 2, Assertions: 10, Deprecations: 1.

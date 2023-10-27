@@ -28,9 +28,9 @@ class QueryTest extends TestCase {
         $this->assertEquals("UPDATE %s SET %s WHERE %s ;", $db->update([])->getFormat());
 
         // Test pour la méthode 'delete'
-        $this->assertEquals("DELETE FROM %s WHERE %s;", $db->delete([], false)->getFormat());
+        $this->assertEquals("DELETE FROM %s WHERE %s;", $db->delete([], true)->getFormat());
 
         // Test pour la méthode 'soft-delete'
-        $this->assertEquals("UPDATE %s SET %s WHERE %s ;", $db->delete([], true)->getFormat());
+        $this->assertEquals("UPDATE %s SET %s WHERE %s ;", $db->delete([], false)->getFormat());
     }
 }
